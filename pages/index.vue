@@ -1,8 +1,14 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+definePageMeta({
+    layout: false,
+})
+</script>
 
 <template>
   <div>
-    Page: foo
+     <NuxtLayout name="custom" title="Home">
+         Page: Index
+     </NuxtLayout>
   </div>
 </template>
 

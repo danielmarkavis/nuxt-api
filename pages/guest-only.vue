@@ -1,12 +1,15 @@
 <script lang="ts" setup>
 definePageMeta({
-    middleware: ['guest']
+    middleware: ['guest'],
+    layout: false,
 })
 </script>
 
 <template>
     <div>
-        Page: foo
+        <NuxtLayout name="custom" title="Guest Only">
+            Page: foo
+        </NuxtLayout>
     </div>
 </template>
 

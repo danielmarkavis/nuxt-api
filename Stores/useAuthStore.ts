@@ -24,12 +24,12 @@ export const useAuthStore = defineStore('auth', () => {
     const isLoggedIn = computed(() => !!user.value);
 
     const fetchUser = async () => {
-        try {
-            const {data, error} = await useApiFetch("/api/user");
+        // try {
+            const {data} = await useApiFetch("/api/user");
             user.value = data.value as User;
-        } catch (e) {
-            console.log(e)
-        }
+        // } catch (e) {
+        //     console.log(e)
+        // }
     }
 
     const login = async (credentials: Credentials) => {
