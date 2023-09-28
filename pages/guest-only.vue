@@ -8,7 +8,7 @@ definePageMeta({
 <template>
     <div>
         <NuxtLayout name="custom" title="Guest Only">
-            Page: foo
+            <h1 class="text-white">Page: Guest</h1>
         </NuxtLayout>
     </div>
 </template>

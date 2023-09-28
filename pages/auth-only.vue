@@ -1,24 +1,17 @@
 <script lang="ts" setup>
+import {useAuthStore} from "~/Stores/useAuthStore";
+
 definePageMeta({
-    middleware: ['auth'],
+    // middleware: ['auth'],
     layout: false,
 })
+
+const auth = useAuthStore();
 
 const permissions = ref<Array<object>|null>(null);
 
 const getPermissions = async () => {
     const {data} = await useApiFetch('/api/permissions')
-    //     .then((response) => {
-    //     if (response.ok) {
-    //         return response.json()
-    //     }
-    //     return Promise.reject(response)
-    // }).then(() => {
-    //     console.log("Success");
-    // }).catch((response) => {
-    //     console.log("An error occurred " + response.status);
-    // });
-
     return data.value;
 }
 
@@ -34,9 +27,9 @@ perms.then(function(result) {
 <template>
     <div>
         <NuxtLayout name="custom" title="Auth Only">
-            Page: Auth2
+            <h1 class="text-white">Page: Auth</h1>
             <template v-for="permission in permissions">
-                <div>
+                <div class="text-white">
                     {{permission.name}}
                 </div>
             </template>

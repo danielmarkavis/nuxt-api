@@ -22,18 +22,19 @@ export function useApiFetch<T> (path: string, options: UseFetchOptions<T> = {}) 
     }
   }
 
-  function success(message) {
-    navigateTo('/admin').then(() => {
-      notify({
-        group: "messages",
-        title: "Success",
-        type: 'success',
-        text: message
-      }, 3000);
-    });
+  function success(message:string) {
+    navigateTo('/auth-only');
+
+    notify({
+      group: "messages",
+      title: "Success",
+      type: 'success',
+      text: message
+    }, 3000);
+
   }
 
-  function error(message) {
+  function error(message:string) {
     notify({
       group: "messages",
       title: "Error",
