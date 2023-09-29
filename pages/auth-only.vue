@@ -2,7 +2,7 @@
 import {useAuthStore} from "~/Stores/useAuthStore";
 
 definePageMeta({
-    // middleware: ['auth'],
+    middleware: ['auth'],
     layout: false,
 })
 

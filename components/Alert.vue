@@ -68,7 +68,7 @@ import { Notification, NotificationGroup } from 'notiwind'
                                         'text-green-500': notification.type === 'success',
                                         'text-red-500': notification.type === 'error',
                                     }"
-                                >{{notification.title}}</span>
+                                >{{ notification.title }}</span>
                                 <p class="text-sm text-sub">
                                     {{ notification.text }}
                                 </p>

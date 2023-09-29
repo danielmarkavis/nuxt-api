@@ -7,7 +7,7 @@ definePageMeta({
 <template>
   <div>
      <NuxtLayout name="custom" title="Home">
-         Page: Index
+         <h2 class="text-white">Page: Index</h2>
      </NuxtLayout>
   </div>
 </template>

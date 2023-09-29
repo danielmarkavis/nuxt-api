@@ -24,16 +24,11 @@ export const useAuthStore = defineStore('auth', () => {
     const isLoggedIn = computed(() => !!user.value);
 
     const fetchUser = async () => {
-        // try {
-            const {data} = await useApiFetch("/api/user");
-            user.value = data.value as User;
-        // } catch (e) {
-        //     console.log(e)
-        // }
+        const {data} = await useApiFetch("/api/user");
+        user.value = data.value as User;
     }
 
     const login = async (credentials: Credentials) => {
-
         await useApiFetch("/sanctum/csrf-cookie");
 
         const loginCall = await useApiFetch("/login", {

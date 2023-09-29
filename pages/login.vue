@@ -4,6 +4,7 @@ import {navigateTo} from "#app";
 import {notify} from "notiwind";
 import FormGroup from "~/components/Form/FormGroup.vue";
 import BaseButton from "~/components/Buttons/BaseButton.vue";
+import {useAlertsStore} from "~/Stores/useAlertsStore";
 
 definePageMeta({
     middleware: ['guest'],
@@ -17,6 +18,7 @@ const form = ref({
 const errors = ref([]);
 
 const auth = useAuthStore();
+const alertsStore = useAlertsStore();
 
 async function handleLogin() {
     if (auth.isLoggedIn) {
@@ -26,16 +28,20 @@ async function handleLogin() {
     const {error} = await auth.login(form.value);
 
     if (!error.value) {
+
         return navigateTo("/auth-only").then(() => {
-            notify(
-                {
-                    group: "messages",
-                    title: "Success",
-                    type: "success",
-                    text: "You logged in!",
-                },
-                3000,
-            );
+            console.log('login');
+            alertsStore.success("You logged in!");
+
+            // notify(
+            //     {
+            //         group: "messages",
+            //         title: "Success",
+            //         type: "success",
+            //         text: "You logged in!",
+            //     },
+            //     3000,
+            // );
         });
     }
     errors.value = error.value?.data?.errors;

@@ -55,9 +55,3 @@
     </g>
   </svg>
 </template>
-
-<script>
-export default {
-  name: "icon-circle"
-};
-</script>
